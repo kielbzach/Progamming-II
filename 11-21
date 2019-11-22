@@ -1,0 +1,60 @@
+/* 
+ * this code uses a generic method to  print our the contents of an array
+ * 
+ * since the method printArray is GENERIC, it will accept any class type 
+ * array
+ * the object in the array must be a class type
+ * 
+ */
+
+
+public class GenericPrintArray
+{
+  public static void main( String[] args)
+  {
+       /*
+     *  Declare three arrays of varying types. Note that we are using WRAPPER CLASS typing
+     *   for the arrays. 
+     */
+    Integer[]   intArray  = { 1, 5, 62,  7,    19,   219 };
+    
+    Double[]    dblArray  = { 0.54, 9.6, 17.0, 8.34, 5.6 };
+    
+    Character[] charArray = { 'h',  '%', '9',  'Q',  '@' };
+    
+    /*
+     *  DECLARE, INSTANTIATE, AND LOAD an array of Book objects
+     */
+    Book[] bookArray = { 
+                         new Book( "The Sun Also Rises", "Hemingway", "Ernest", 1926, "Scribner" ),
+                         new Book( "Without Remorse", "Clancy", "Tom", 1993, "Putnam" ),
+                         new Book( "Nightshift", "Harris", "Charlaine", 2017, "Ace" ),
+                         new Book( "Cosmos", "Sagan", "Carl", 2013, "Ballantine Books" ) 
+                        };
+    System.out.printf( "%nCall Method printArray Using an Interger Array%n");
+    printArray( intArray );
+        System.out.printf( "%nCall Method printArray Using an double Array%n");
+    printArray( dblArray );
+        System.out.printf( "%nCall Method printArray Using an Character Array%n");
+    printArray( charArray );
+        System.out.printf( "%nCall Method printArray Using an book Array%n");
+    printArray( bookArray );
+  }
+  
+  /* 
+   * generic method printarray accepts one parameter - an array 
+   * containing objects of some class type.
+   * primitive types are not allowed
+   */
+  
+  public static <T> void printArray( T[ ] inputArray )
+  {
+    for( T element: printArray )
+    {
+     System.out.printf("%s%n",
+                       element.toString( ) ); 
+    }
+    
+  }
+  
+}
